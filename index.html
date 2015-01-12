@@ -1,0 +1,42 @@
+
+
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+  <h2>I am not inside an AngularJS app</h2>
+<div ng-app="embeddedApp">
+  <h3>Inside an AngularJS app</h3>
+  {{ name }}
+  
+  <div ng-controller="MyController">
+  {{ person.name }}
+  {{ clock }}
+  
+  </div>
+  
+  <div ng-controller="ParentController">
+	  <div ng-controller="ChildController">
+		<input type="text" ng-model="person.name" placeholder="Name"></input>
+		<a ng-click="sayHello()">Say hello</a>
+	  </div>
+  {{ person }}
+  </div>
+	
+
+	
+</div>
+<div ng-controller="PlayerController">
+  <button ng-click="play()" class="button" ng-show="!playing">Play</button>
+  <button ng-click="stop()" class="button alert" ng-show="playing">Stop</button>
+  Playing audio: <b>{{ playing }}</b>
+ 
+ <li ng-repeat="program in programs">
+  {{ program.title.$text }}
+  </li>
+</div>
+  </body>
+</html>
